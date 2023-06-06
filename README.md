@@ -7,7 +7,7 @@
 
 <p align="left"> <a href="https://twitter.com/captainroger69" target="blank"><img src="https://img.shields.io/twitter/follow/captainroger69?logo=twitter&style=for-the-badge" alt="captainroger69" /></a> </p>
 
-- 🔭 I’m currently working on [Wash in time]([https://github.com/GymIn-Development/gymin-flutter](https://play.google.com/store/search?q=wit%20partner&c=apps))
+- 🔭 I’m currently working on [Wash in time](https://play.google.com/store/search?q=wit%20partner&c=apps)
 
 - 🌱 I’m currently learning **Dart**
 

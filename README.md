@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Mayank Yadav</h1>
+<h1 align="center">Hello there! 👋, I'm Mayank Yadav</h1>
 <h3 align="center">A passionate Flutter developer from India</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=captainrogers69&label=Profile%20views&color=0e75b6&style=flat" alt="captainrogers69" /> </p>
@@ -7,9 +7,9 @@
 
 <p align="left"> <a href="https://twitter.com/captainroger69" target="blank"><img src="https://img.shields.io/twitter/follow/captainroger69?logo=twitter&style=for-the-badge" alt="captainroger69" /></a> </p>
 
-- 🔭 I’m currently working on [Gymin](https://github.com/GymIn-Development/gymin-flutter)
+- 🔭 I’m currently working on [Wash in time]([https://github.com/GymIn-Development/gymin-flutter](https://play.google.com/store/search?q=wit%20partner&c=apps))
 
-- 🌱 I’m currently learning **Python**
+- 🌱 I’m currently learning **Dart**
 
 - 👨‍💻 All of my projects are available at [https://captainrogers69.github.io](https://captainrogers69.github.io)
 

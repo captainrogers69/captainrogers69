@@ -9,7 +9,9 @@
 
 - 🔭 I’m currently working on [Intelligere](https://play.google.com/store/apps/details?id=com.app.intelligere)
 
-- 🌱 I’m currently learning **Dart**
+- 🌱 I’m currently learning **Node.js**
+
+- 🔭 Passionate for learning & exploring everything related to Mobile App Development.
 
 - 👨‍💻 All of my projects are available at [https://captainrogers69.github.io](https://captainrogers69.github.io)
 

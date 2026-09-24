@@ -13,7 +13,7 @@ ASCII = ROOT / "ascii.svg"
 STATIC = os.environ.get("STATIC") == "1"
 
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-W, PAD = 490, 24
+W, PAD = 486, 24
 USER, HOST = "mayank-mobiledev", "github"
 ROWS = [
     ("Role", "Senior Mobile Engineer @ CodeVIT"),

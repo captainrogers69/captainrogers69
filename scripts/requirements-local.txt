@@ -1,0 +1,6 @@
+# Portrait prep only (run locally, not in CI)
+-r requirements.txt
+pillow
+numpy
+opencv-python-headless
+rembg[cpu]

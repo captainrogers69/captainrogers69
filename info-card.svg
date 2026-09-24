@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="490" height="396" viewBox="0 0 490 396" role="img" aria-label="Mayank Yadav: Senior Mobile Engineer at CodeVIT">
+<style>
+  text { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size: 13px; white-space: pre; }
+  .p { fill: #39d353; font-weight: 600; }
+  .k { fill: #9be9a8; font-weight: 600; }
+  .v { fill: #e6edf3; }
+  .d { fill: #7d8590; }
+  .cur { fill: #39d353; }
+  .row { opacity: 0; animation: in .5s ease-out forwards; }
+  .cur { animation: blink 1.1s steps(1) infinite; }
+  @keyframes in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+  @keyframes blink { 50% { fill-opacity: 0; } }
+</style>
+<rect x=".5" y=".5" width="489" height="395" rx="10" fill="#0d1117" stroke="#30363d"/>
+<g transform="translate(24 0)" xml:space="preserve">
+<g class="row" style="animation-delay:0.40s"><text y="30"><tspan class="p">mayank-mobiledev</tspan><tspan class="d">@</tspan><tspan class="p">github</tspan></text></g>
+<g class="row" style="animation-delay:0.54s"><text y="50" class="d">-----------------------</text></g>
+<g class="row" style="animation-delay:0.68s"><text y="80"><tspan class="k">Role</tspan><tspan class="d">:      </tspan><tspan class="v">Senior Mobile Engineer @ CodeVIT</tspan></text></g>
+<g class="row" style="animation-delay:0.82s"><text y="106"><tspan class="k">Prev</tspan><tspan class="d">:      </tspan><tspan class="v">SoluLab · AllEvents · WashInTime</tspan></text></g>
+<g class="row" style="animation-delay:0.96s"><text y="132"><tspan class="k">Stack</tspan><tspan class="d">:     </tspan><tspan class="v">Flutter · Node.js · TypeScript</tspan></text></g>
+<g class="row" style="animation-delay:1.10s"><text y="158"><tspan class="k">Platforms</tspan><tspan class="d">: </tspan><tspan class="v">Android · iOS · macOS</tspan></text></g>
+<g class="row" style="animation-delay:1.24s"><text y="184"><tspan class="k">Shipped</tspan><tspan class="d">:   </tspan><tspan class="v">AllEvents · Toskie · NotchPeek</tspan></text></g>
+<g class="row" style="animation-delay:1.38s"><text y="224"><tspan class="k">GitHub</tspan><tspan class="d">:    </tspan><tspan class="v">@captainrogers69</tspan></text></g>
+<g class="row" style="animation-delay:1.52s"><text y="250"><tspan class="k">X</tspan><tspan class="d">:         </tspan><tspan class="v">@captainroger69</tspan></text></g>
+<g class="row" style="animation-delay:1.66s"><rect x="0" y="328" width="26" height="14" rx="2" fill="#161b22"/><rect x="30" y="328" width="26" height="14" rx="2" fill="#0e4429"/><rect x="60" y="328" width="26" height="14" rx="2" fill="#006d32"/><rect x="90" y="328" width="26" height="14" rx="2" fill="#26a641"/><rect x="120" y="328" width="26" height="14" rx="2" fill="#39d353"/><rect x="150" y="328" width="26" height="14" rx="2" fill="#9be9a8"/><rect x="180" y="328" width="26" height="14" rx="2" fill="#e6edf3"/></g>
+<g class="row" style="animation-delay:1.80s"><text y="372"><tspan class="p">mayank-mobiledev@github</tspan><tspan class="d"> ~ $ </tspan><tspan class="cur">█</tspan></text></g>
+</g>
+</svg>

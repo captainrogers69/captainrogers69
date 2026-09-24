@@ -6,7 +6,7 @@
 
 <h3><code>mayank-mobiledev@github ~ $ ./contributions.sh</code></h3>
 
-<a href="https://mayank-mobiledev.netlify.app/whoami/"><img src="./contrib-heatmap.svg" width="860" height="289" alt="GitHub contribution heatmap for the last year" /></a>
+<a href="https://mayank-mobiledev.netlify.app/whoami/"><img src="./contrib-heatmap.svg" width="860" height="455" alt="GitHub contribution heatmap for the last year" /></a>
 
 <h3><code>mayank-mobiledev@github ~ $ ls ./links</code></h3>
 

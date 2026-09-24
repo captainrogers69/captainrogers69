@@ -16,6 +16,8 @@ OUT = ROOT / "contrib-heatmap.svg"
 STATIC = os.environ.get("STATIC") == "1"
 
 PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
+GREEN, ORANGE = "#39d353", "#f0883e"
+TILE_H, TILE_GAP = 58, 12
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
 
 W = 860
@@ -67,26 +69,46 @@ def main():
 
     grid_h = 7 * STEP
     legend_y = GRID_Y + grid_h + 14
-    footer_y = legend_y + 42
-    H = footer_y + 34 + BAR
     sweep_end = (ncols + 7) * 0.018 + 0.4
 
-    tiles = [
-        ("contributions", f"{stats['total']:,}"),
-        ("active days", stats["active_days"]),
-        ("current streak", f"{stats['current_streak']}d"),
-        ("longest streak", f"{stats['longest_streak']}d"),
-        ("best day", f"{stats['best_day']['count']} · {fmt_day(stats['best_day']['date'])}"),
+    life = data["lifetime"]
+    top_month = stats["busiest_month"]["month"]
+    rows = [
+        ("stats --year", [
+            ("\U0001F525", "current streak", f"{stats['current_streak']}d", ORANGE),
+            ("\U0001F4C8", "contributions", f"{stats['total']:,}", GREEN),
+            ("\u26A1\uFE0F", "longest streak", f"{stats['longest_streak']}d", GREEN),
+            ("\U0001F3C6", f"best day · {fmt_day(stats['best_day']['date'])}", str(stats["best_day"]["count"]), GREEN),
+            ("\U0001F4C5", f"top month · {MONTHS[int(top_month[5:]) - 1]}", str(stats["busiest_month"]["count"]), GREEN),
+        ]),
+        ("stats --lifetime", [
+            ("\U0001F4CA", "all-time total", f"{life['total']:,}", GREEN),
+            ("\u26A1\uFE0F", "longest streak", f"{life['longest_streak']}d", GREEN),
+            ("\U0001F680", f"best year · {life['best_year']['year']}", f"{life['best_year']['count']:,}", GREEN),
+            ("\U0001F5D3\uFE0F", "on GitHub since", str(life["since"]), GREEN),
+            ("\U0001F4E6", "public repos", str(life["public_repos"]), GREEN),
+        ]),
     ]
-    tile_w = (W - 48) / len(tiles)
-    footer = []
-    for i, (label, value) in enumerate(tiles):
-        x = 24 + i * tile_w
+    tile_w = (W - 48 - 4 * TILE_GAP) / 5
+    footer, y0, n = [], legend_y + 50, 0
+    for cmd, tiles in rows:
         footer.append(
-            f'<g class="f" style="animation-delay:{sweep_end + i * 0.12:.2f}s">'
-            f'<text x="{x:.0f}" y="{footer_y}" class="v">{esc(value)}</text>'
-            f'<text x="{x:.0f}" y="{footer_y + 17}" class="l">{label}</text></g>'
+            f'<g class="f" style="animation-delay:{sweep_end + n * 0.08:.2f}s">'
+            f'<text x="24" y="{y0}" class="h"><tspan fill="{GREEN}">$</tspan> {cmd}</text></g>'
         )
+        n += 1
+        for i, (icon, label, value, color) in enumerate(tiles):
+            x, y = 24 + i * (tile_w + TILE_GAP), y0 + 12
+            footer.append(
+                f'<g class="f" style="animation-delay:{sweep_end + n * 0.08:.2f}s">'
+                f'<rect x="{x:.1f}" y="{y}" width="{tile_w:.1f}" height="{TILE_H}" rx="6" fill="#161b22" stroke="#30363d"/>'
+                f'<rect x="{x:.1f}" y="{y}" width="3" height="{TILE_H}" rx="1.5" fill="{color}"/>'
+                f'<text x="{x + 16:.1f}" y="{y + 27}" class="v" fill="{color}">{esc(value)}</text>'
+                f'<text x="{x + 16:.1f}" y="{y + 46}" class="t">{icon} {esc(label)}</text></g>'
+            )
+            n += 1
+        y0 += 12 + TILE_H + 32
+    H = y0 - 32 + 20 + BAR
 
     legend_x = W - 24 - 5 * STEP - 34
     legend = [f'<text x="{legend_x - 8}" y="{legend_y + 10}" class="l" text-anchor="end">less</text>']
@@ -115,7 +137,8 @@ def main():
 <style>
   text {{ font-family: {FONT}; }}
   .l {{ fill: #7d8590; font-size: 11px; }}
-  .v {{ fill: #e6edf3; font-size: 18px; font-weight: 600; }}
+  .v {{ font-size: 18px; font-weight: 700; }}
+  .t {{ fill: #8b949e; font-size: 11px; white-space: pre; }}
   .h {{ fill: #e6edf3; font-size: 13px; }}{anim}
 </style>
 {frame(W, H, "mayank-mobiledev@github: ~$ ./contributions.sh")}
@@ -126,7 +149,6 @@ def main():
 {weekdays}
 {''.join(cells)}
 {''.join(legend)}
-<line x1="24" x2="{W - 24}" y1="{footer_y - 30}" y2="{footer_y - 30}" stroke="#21262d"/>
 {''.join(footer)}
 </g>
 </svg>

@@ -7,6 +7,8 @@ import os
 import re
 from pathlib import Path
 
+from window import BAR, frame
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "info-card.svg"
 ASCII = ROOT / "ascii.svg"
@@ -45,7 +47,7 @@ def main():
         parts.append(f'<g class="row"{style}>{body}</g>')
         t += step
 
-    y = 30
+    y = BAR + 30
     group(f'<text y="{y}"><tspan class="p">{USER}</tspan><tspan class="d">@</tspan>'
           f'<tspan class="p">{HOST}</tspan></text>')
     y += 20
@@ -84,7 +86,7 @@ def main():
   .d {{ fill: #7d8590; }}
   .cur {{ fill: #39d353; }}{anim}
 </style>
-<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="10" fill="#0d1117" stroke="#30363d"/>
+{frame(W, H, f"{USER}@{HOST}: ~$ neofetch")}
 <g transform="translate({PAD} 0)" xml:space="preserve">
 {chr(10).join(parts)}
 </g>

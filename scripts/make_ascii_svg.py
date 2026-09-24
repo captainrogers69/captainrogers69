@@ -12,6 +12,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
+from window import BAR, frame
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "source-prepped.png"
 OUT = ROOT / "ascii.svg"
@@ -19,7 +21,8 @@ STATIC = os.environ.get("STATIC") == "1"
 
 RAMP = " .`:-=+*cs#%@"
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-W, PAD, TOP = 370, 16, 44
+W, PAD = 370, 16
+TOP = BAR + 14
 COLS = 84
 LINE_H = 8
 ROW_DUR, ROW_GAP = 0.35, 0.05  # seconds per row wipe, stagger between rows
@@ -81,10 +84,9 @@ def main():
 <style>
   text {{ font-family: {FONT}; }}
   .a text {{ font-size: {char_w * 1.66:.2f}px; fill: url(#g); white-space: pre; }}
-  .l {{ fill: #7d8590; font-size: 11px; }}{anim}
+{anim}
 </style>
-<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="10" fill="#0d1117" stroke="#30363d"/>
-<text x="{PAD}" y="26" class="l">~/mayank.jpg | ascii</text>
+{frame(W, H, "~/mayank.jpg | ascii")}
 <g class="a" xml:space="preserve">{''.join(texts)}</g>
 </svg>
 """

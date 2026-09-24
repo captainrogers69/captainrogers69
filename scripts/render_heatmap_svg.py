@@ -8,6 +8,8 @@ import os
 from datetime import date
 from pathlib import Path
 
+from window import BAR, frame
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "contributions.json"
 OUT = ROOT / "contrib-heatmap.svg"
@@ -66,7 +68,7 @@ def main():
     grid_h = 7 * STEP
     legend_y = GRID_Y + grid_h + 14
     footer_y = legend_y + 42
-    H = footer_y + 34
+    H = footer_y + 34 + BAR
     sweep_end = (ncols + 7) * 0.018 + 0.4
 
     tiles = [
@@ -116,7 +118,8 @@ def main():
   .v {{ fill: #e6edf3; font-size: 18px; font-weight: 600; }}
   .h {{ fill: #e6edf3; font-size: 13px; }}{anim}
 </style>
-<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="10" fill="#0d1117" stroke="#30363d"/>
+{frame(W, H, "mayank-mobiledev@github: ~$ ./contributions.sh")}
+<g transform="translate(0 {BAR})">
 <text x="24" y="28" class="h">{stats['total']:,} contributions in the last year</text>
 <text x="{W - 24}" y="28" class="l" text-anchor="end">updated {esc(data['generated'])}</text>
 {months}
@@ -125,6 +128,7 @@ def main():
 {''.join(legend)}
 <line x1="24" x2="{W - 24}" y1="{footer_y - 30}" y2="{footer_y - 30}" stroke="#21262d"/>
 {''.join(footer)}
+</g>
 </svg>
 """
     OUT.write_text(svg)

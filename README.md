@@ -2,11 +2,11 @@
 
 <h3><code>mayank-mobiledev@github ~ $ whoami</code></h3>
 
-<a href="https://mayank-mobiledev.netlify.app/whoami/"><img src="./whoami.svg" width="860" height="398" alt="ASCII portrait of Mayank Yadav, next to a profile card: Senior Mobile Engineer at CodeVIT. Previously SoluLab, AllEvents and WashInTime. Stack: Flutter, Node.js, TypeScript. Platforms: Android, iOS, macOS. Shipped AllEvents, Toskie, NotchPeek." /></a>
+<a href="https://mayank-mobiledev.netlify.app/whoami/"><picture><source media="(max-width: 768px)" srcset="https://raw.githubusercontent.com/captainrogers69/captainrogers69/main/whoami-stacked.svg" /><source media="(min-width: 769px)" srcset="https://raw.githubusercontent.com/captainrogers69/captainrogers69/main/whoami.svg" width="860" height="398" /><img src="./whoami.svg" width="860" alt="ASCII portrait of Mayank Yadav, next to a profile card: Senior Mobile Engineer at CodeVIT. Previously SoluLab, AllEvents and WashInTime. Stack: Flutter, Node.js, TypeScript. Platforms: Android, iOS, macOS. Shipped AllEvents, Toskie, NotchPeek." /></picture></a>
 
 <h3><code>mayank-mobiledev@github ~ $ ./contributions.sh</code></h3>
 
-<a href="https://mayank-mobiledev.netlify.app/whoami/"><img src="./contrib-heatmap.svg" width="860" height="447" alt="GitHub contribution heatmap for the last year" /></a>
+<a href="https://mayank-mobiledev.netlify.app/whoami/"><picture><source media="(max-width: 768px)" srcset="https://raw.githubusercontent.com/captainrogers69/captainrogers69/main/contrib-heatmap.svg" /><source media="(min-width: 769px)" srcset="https://raw.githubusercontent.com/captainrogers69/captainrogers69/main/contrib-heatmap.svg" width="860" height="447" /><img src="./contrib-heatmap.svg" width="860" alt="GitHub contribution heatmap for the last year" /></picture></a>
 
 <h3><code>mayank-mobiledev@github ~ $ ls ./links</code></h3>
 

@@ -16,8 +16,7 @@ OUT = ROOT / "contrib-heatmap.svg"
 STATIC = os.environ.get("STATIC") == "1"
 
 PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
-GREEN, ORANGE = "#39d353", "#f0883e"
-TILE_H, TILE_GAP = 58, 12
+GREEN, ORANGE, WHITE = "#39d353", "#f0883e", "#e6edf3"
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
 
 W = 860
@@ -76,39 +75,46 @@ def main():
     rows = [
         ("stats --year", [
             ("\U0001F525", "current streak", f"{stats['current_streak']}d", ORANGE),
-            ("\U0001F4C8", "contributions", f"{stats['total']:,}", GREEN),
-            ("\u26A1\uFE0F", "longest streak", f"{stats['longest_streak']}d", GREEN),
-            ("\U0001F3C6", f"best day · {fmt_day(stats['best_day']['date'])}", str(stats["best_day"]["count"]), GREEN),
-            ("\U0001F4C5", f"top month · {MONTHS[int(top_month[5:]) - 1]}", str(stats["busiest_month"]["count"]), GREEN),
+            ("\U0001F4C8", "contributions", f"{stats['total']:,}", WHITE),
+            ("\u26A1\uFE0F", "longest streak", f"{stats['longest_streak']}d", WHITE),
+            ("\U0001F3C6", f"best · {fmt_day(stats['best_day']['date'])} '{stats['best_day']['date'][2:4]}", str(stats["best_day"]["count"]), WHITE),
+            ("\U0001F4C5", f"top month · {MONTHS[int(top_month[5:]) - 1]} '{top_month[2:4]}", str(stats["busiest_month"]["count"]), WHITE),
         ]),
-        ("stats --lifetime", [
-            ("\U0001F4CA", "all-time total", f"{life['total']:,}", GREEN),
-            ("\u26A1\uFE0F", "longest streak", f"{life['longest_streak']}d", GREEN),
-            ("\U0001F680", f"best year · {life['best_year']['year']}", f"{life['best_year']['count']:,}", GREEN),
-            ("\U0001F5D3\uFE0F", "on GitHub since", str(life["since"]), GREEN),
-            ("\U0001F4E6", "public repos", str(life["public_repos"]), GREEN),
+        ("stats --all-time", [
+            ("\U0001F4CA", "total", f"{life['total']:,}", WHITE),
+            ("\u26A1\uFE0F", "longest streak", f"{life['longest_streak']}d", WHITE),
+            ("\U0001F680", f"best year · {life['best_year']['year']}", f"{life['best_year']['count']:,}", WHITE),
+            ("\U0001F5D3\uFE0F", "on GitHub since", str(life["since"]), WHITE),
+            ("\U0001F4E6", "public repos", str(life["public_repos"]), WHITE),
         ]),
     ]
-    tile_w = (W - 48 - 4 * TILE_GAP) / 5
-    footer, y0, n = [], legend_y + 50, 0
-    for cmd, tiles in rows:
+    col_w = (W - 48) / 5
+    y = legend_y + 26
+    footer = [f'<line x1="24" x2="{W - 24}" y1="{y}" y2="{y}" stroke="#21262d"/>']
+    n = 0
+    for r, (cmd, tiles) in enumerate(rows):
+        if r:
+            y += 14
+            footer.append(f'<line x1="24" x2="{W - 24}" y1="{y}" y2="{y}" stroke="#21262d"/>')
+        y += 30
         footer.append(
             f'<g class="f" style="animation-delay:{sweep_end + n * 0.08:.2f}s">'
-            f'<text x="24" y="{y0}" class="h"><tspan fill="{GREEN}">$</tspan> {cmd}</text></g>'
+            f'<text x="24" y="{y}" class="h"><tspan fill="{GREEN}">$</tspan> {cmd}</text></g>'
         )
         n += 1
+        y += 32
         for i, (icon, label, value, color) in enumerate(tiles):
-            x, y = 24 + i * (tile_w + TILE_GAP), y0 + 12
+            x = 24 + i * col_w
+            if i:
+                footer.append(f'<line x1="{x - 14:.1f}" x2="{x - 14:.1f}" y1="{y - 18}" y2="{y + 24}" stroke="#30363d"/>')
             footer.append(
                 f'<g class="f" style="animation-delay:{sweep_end + n * 0.08:.2f}s">'
-                f'<rect x="{x:.1f}" y="{y}" width="{tile_w:.1f}" height="{TILE_H}" rx="6" fill="#161b22" stroke="#30363d"/>'
-                f'<rect x="{x:.1f}" y="{y}" width="3" height="{TILE_H}" rx="1.5" fill="{color}"/>'
-                f'<text x="{x + 16:.1f}" y="{y + 27}" class="v" fill="{color}">{esc(value)}</text>'
-                f'<text x="{x + 16:.1f}" y="{y + 46}" class="t">{icon} {esc(label)}</text></g>'
+                f'<text x="{x:.1f}" y="{y}" class="v" fill="{color}">{esc(value)}</text>'
+                f'<text x="{x:.1f}" y="{y + 19}" class="t">{icon} {esc(label)}</text></g>'
             )
             n += 1
-        y0 += 12 + TILE_H + 32
-    H = y0 - 32 + 20 + BAR
+        y += 24
+    H = y + 22 + BAR
 
     legend_x = W - 24 - 5 * STEP - 34
     legend = [f'<text x="{legend_x - 8}" y="{legend_y + 10}" class="l" text-anchor="end">less</text>']

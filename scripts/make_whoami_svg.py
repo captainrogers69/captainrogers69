@@ -26,7 +26,7 @@ def main():
     # blocks become document-wide, so class/keyframe names must not clash.
     right = right.replace("<svg ", f'<svg x="{lw + GAP}" y="0" ', 1)
     svg = (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMin meet" '
         f'role="img" aria-label="Mayank Yadav: ASCII portrait and profile card">\n'
         f"{left}{right}</svg>\n"
     )

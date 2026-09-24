@@ -109,7 +109,7 @@ def main():
                     to   { opacity: 1; transform: none; } }
   @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }"""
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{stats['total']} GitHub contributions in the last year">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMin meet" role="img" aria-label="{stats['total']} GitHub contributions in the last year">
 <style>
   text {{ font-family: {FONT}; }}
   .l {{ fill: #7d8590; font-size: 11px; }}

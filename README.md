@@ -2,11 +2,11 @@
 
 <h3><code>mayank-mobiledev@github ~ $ whoami</code></h3>
 
-<img src="./whoami.svg" width="860" alt="ASCII portrait of Mayank Yadav, next to a profile card: Senior Mobile Engineer at CodeVIT. Previously SoluLab, AllEvents and WashInTime. Stack: Flutter, Node.js, TypeScript. Platforms: Android, iOS, macOS. Shipped AllEvents, Toskie, NotchPeek." />
+<img src="./whoami.svg" width="860" height="396" alt="ASCII portrait of Mayank Yadav, next to a profile card: Senior Mobile Engineer at CodeVIT. Previously SoluLab, AllEvents and WashInTime. Stack: Flutter, Node.js, TypeScript. Platforms: Android, iOS, macOS. Shipped AllEvents, Toskie, NotchPeek." />
 
 <h3><code>mayank-mobiledev@github ~ $ ./contributions.sh</code></h3>
 
-<img src="./contrib-heatmap.svg" width="860" alt="GitHub contribution heatmap for the last year" />
+<img src="./contrib-heatmap.svg" width="860" height="257" alt="GitHub contribution heatmap for the last year" />
 
 <h3><code>mayank-mobiledev@github ~ $ ls ./links</code></h3>
 
